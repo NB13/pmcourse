@@ -17,10 +17,12 @@ public class Tree {
     public List<Apple> apples = new ArrayList<Apple>();
     public int seedGrown = 0;
     public int seedShaked = 0;
-
+    private boolean bloom = false;
+    private int bloomCount;
 
     public void grow() {
-        int countToGrow = (int) (Math.random() * MAX_APPLES_RANDOM);
+        int countToGrow = bloom ? bloomCount : (int) (Math.random() * MAX_APPLES_RANDOM) ;
+        bloom = false;
         for (int i = 0; i < countToGrow; i++) {
             Apple apple = new Apple();
             apples.add(apple);
@@ -35,5 +37,10 @@ public class Tree {
             seedShaked += apple.seed;
             countToRemove--;
         }
+    }
+
+    public void bloom() {
+        bloom = true;
+        bloomCount = (int) (Math.random() * MAX_APPLES_RANDOM);
     }
 }

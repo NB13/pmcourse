@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     protected enum Method {
-        grow, shake, exit
+        grow, shake, bloom, exit
     }
 
     protected static Tree tree = new Tree();
@@ -33,6 +33,10 @@ public class Main {
                 }
                 case shake: {
                     tree.shake();
+                    break;
+                }
+                case bloom:{
+                    tree.bloom();
                     break;
                 }
             }
